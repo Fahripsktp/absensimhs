@@ -17,7 +17,8 @@
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
    
 
-    
+       <link rel="stylesheet" href="umum/style.css">
+       <link rel="stylesheet" href="ds/style.css">
 
 <link href="bootstrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
