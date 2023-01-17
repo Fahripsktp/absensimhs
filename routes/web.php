@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -24,8 +25,13 @@ Route::get('/', function () {
         'active' => 'HOME'
     ]);
 });
+Route::get('/berhasil', function () {
+    return view('absensi.barhasil');
+});
 
-
+// absensi mhs
+route::get('/absensimhs', [AbsensiController::class, 'create' ]);
+route::post('/absensimhs', [AbsensiController::class, 'store' ]);
 // login guru atau admin
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
