@@ -51,17 +51,6 @@ class AbsensiController extends Controller
         $model->save();
 
         return redirect('/berhasil');
-        // $model = $request->validate([
-        //     'name' => 'required|max:255',
-        //     'nim' => ['required', 'min:3', 'max:255', 'unique:absen'],
-        //     'kelas_id' => 'required|max:255',
-        //     'fakultas_id' => 'required|max:255',
-        //     'email' => 'required|email|unique:absen',
-        //     'tanggal_absen' => 'required|max:255'
-        // ]);
-        
-        // absen::create($model);
-        // return redirect('/berhasil');
     }
 
     /**
@@ -83,7 +72,8 @@ class AbsensiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model = absen::find($id);
+        return view('Dashboard.edit', compact('model'));
     }
 
     /**
@@ -95,7 +85,15 @@ class AbsensiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $model = absen::find($id);
+        $model->name = $request->name;
+        $model->nim = $request->nim;
+        $model->email = $request->email;
+        $model->kelas_id = $request->kelas_id;
+        $model->fakultas_id = $request->fakultas_id;
+        $model->tanggal_absen = $request->tanggal_absen;
+        $model->save();
+        return redirect('/datamhs');
     }
 
     /**
@@ -106,6 +104,8 @@ class AbsensiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $model = absen::find($id);
+        $model->delete();
+        return redirect('/datamhs');
     }
 }

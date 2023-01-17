@@ -29,9 +29,15 @@ Route::get('/berhasil', function () {
     return view('absensi.barhasil');
 });
 
+Route::get('/admin', function () {
+    return view('Dashboard.dashboardlte');
+});
+
 // absensi mhs
+route::get('/datamhs', [AbsensiController::class, 'index' ]);
 route::get('/absensimhs', [AbsensiController::class, 'create' ]);
 route::post('/absensimhs', [AbsensiController::class, 'store' ]);
+Route::resource('absen', AbsensiController::class);
 // login guru atau admin
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
